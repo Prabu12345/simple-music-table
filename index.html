@@ -1,0 +1,210 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f9;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+
+            h2, p {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 24px;
+                color: #444;
+            }
+
+            p {
+                font-size: 16px;
+                color: #666;
+            }
+
+            table {
+                margin: 20px auto;
+                border-collapse: collapse;
+                width: 90%;
+                max-width: 1000px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            th, td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f7b731;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            td {
+                background-color: #fff;
+                color: #333;
+            }
+
+            #tdR:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            button {
+                background-color: #ff7f50;
+                color: white;
+                border: none;
+                padding: 10px 40px;
+                border-radius: 5px;
+                cursor: pointer;
+                display: block;
+                margin: 20px auto;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #ff6347;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+
+            form input, form select {
+                padding: 10px;
+                margin: 10px 0;
+                width: 80%;
+                max-width: 400px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            form input[type="submit"] {
+                background-color: #27ae60;
+                color: white;
+                cursor: pointer;
+            }
+
+            form input[type="submit"]:hover {
+                background-color: #2ecc71;
+            }
+        </style>
+        <title>Music Table</title>
+    </head>
+    <body>
+        <h2>Music Table</h2>
+        <p>A Music metadata list</p>
+        <p>Made By: M. Prabu Kiandamar Utoyo - 22552011195</p>
+        <table id="tabel">
+            <tr>
+                <th>Song Name</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Composer</th>
+                <th>Genre</th>
+                <th>Date</th>
+                <th>Rating</th>
+            </tr>
+            <tr id="tdR">
+                <td>Bohemian Rhapsody</td>
+                <td>Queen</td>
+                <td>A Night at the Opera</td>
+                <td>Freddie Mercury</td>
+                <td>Rock</td>
+                <td>1975-10-31</td>
+                <td>5</td>
+            </tr>
+            <tr id="tdR">
+                <td>Rolling in the Deep</td>
+                <td>Adele</td>
+                <td>21</td>
+                <td>Adele, Paul Epworth</td>
+                <td>Soul, Pop</td>
+                <td>2010-11-29</td>
+                <td>4.8</td>
+            </tr>
+            <tr id="tdR">
+                <td>Shape of You</td>
+                <td>Ed Sheeran</td>
+                <td>÷ (Divide)</td>
+                <td>Ed Sheeran, Steve Mac</td>
+                <td>Pop</td>
+                <td>2017-01-06</td>
+                <td>4.5</td>
+            </tr>
+            <tr id="tdR">
+                <td>Smells Like Teen Spirit</td>
+                <td>Nirvana</td>
+                <td>Nevermind</td>
+                <td>Kurt Cobain, Nirvana</td>
+                <td>Grunge</td>
+                <td>1991-09-10</td>
+                <td>5</td>
+            </tr>
+            <tr id="tdR">
+                <td>Hotel California</td>
+                <td>Eagles</td>
+                <td>Hotel California</td>
+                <td>Don Felder, Don Henley, Glenn Frey</td>
+                <td>Rock</td>
+                <td>1976-12-08</td>
+                <td>4.9</td>
+            </tr>
+            <tr id="tdR">
+                <td>Someone Like You</td>
+                <td>Adele</td>
+                <td>21</td>
+                <td>Adele, Dan Wilson</td>
+                <td>Pop, Soul</td>
+                <td>2011-01-24</td>
+                <td>4.7</td>
+            </tr>
+            <tr id="tdR">
+                <td>Bad Guy</td>
+                <td>Billie Eilish</td>
+                <td>When We All Fall Asleep, Where Do We Go?</td>
+                <td>Billie Eilish, Finneas O'Connell</td>
+                <td>Electropop</td>
+                <td>2019-03-29</td>
+                <td>4.6</td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="alert('Thank you for the like C:')">Like</button>
+
+        <form id="suggestionForm">
+            <h3>Suggest a Song</h3>
+            <input type="text" id="songName" placeholder="Song Name" required>
+            <input type="text" id="artistName" placeholder="Artist" required>
+            <input type="text" id="albumName" placeholder="Album" required>
+            <input type="text" id="composerName" placeholder="Composer" required>
+            <input type="text" id="genre" placeholder="Genre" required>
+            <input type="date" id="releaseDate" placeholder="Release Date" required>
+            <input type="number" id="rating" placeholder="Rating (0-5)" step="0.1" max="5" min="0" required>
+            <input type="submit" value="Submit Suggestion">
+        </form>
+
+        <script>
+            const form = document.getElementById('suggestionForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Thank you for your suggestion! Your data has been submitted.');
+                form.reset();
+            });
+        </script>
+    </body>
+</html>
